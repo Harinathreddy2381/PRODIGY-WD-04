@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chitla Harinath Reddy | Portfolio</title>
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f7f1ff, #e6d0f7);
+      color: #222831;
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: 3rem;
+    }
+
+    /* Glassmorphism base style */
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease-in-out;
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 40px 0 rgba(131, 58, 180, 0.3);
+      transform: translateY(-5px);
+    }
+
+    /* Header */
+    header {
+      background: transparent;
+      padding: 1rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #ff4d6d;
+      letter-spacing: 2px;
+      cursor: default;
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 4px rgba(255, 77, 109, 0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #5e548e;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 12px;
+      transition: background 0.3s, color 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #ff4d6d;
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.6);
+      outline: none;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      border-radius: 20px;
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      box-shadow: 0 15px 40px rgba(255, 126, 179, 0.5);
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: 0;
+      border-radius: 50%;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg);}
+      to { transform: rotate(360deg);}
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      position: relative;
+      z-index: 1;
+      font-weight: 900;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+      letter-spacing: 3px;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 0.7rem;
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
+    }
+
+    /* Section container */
+    .section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto 4rem auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: #9a0680;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #ff4d6d;
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1.5px;
+    }
+
+    ul, .project-card, .course-list {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #393e46;
+    }
+
+    li {
+      margin: 0.7rem 0;
+      line-height: 1.5;
+    }
+
+    /* Project cards */
+    .project-card {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 1.8rem 2rem;
+      border-left: 6px solid #9a0680;
+      box-shadow: 0 10px 25px rgba(154, 6, 128, 0.1);
+      margin-top: 1.5rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    .project-card:hover {
+      background: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 15px 40px rgba(154, 6, 128, 0.3);
+      transform: translateY(-6px);
+    }
+    .project-card h3 {
+      color: #6a0572;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .project-card p {
+      color: #3c2a45;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Contact Section */
+    .contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      color: #442c51;
+    }
+    .contact p a {
+      color: #ff4d6d;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .contact p a:hover {
+      text-decoration: underline;
+      color: #9a0680;
+    }
+
+    /* Footer */
+    footer {
+      background: #9a0680;
+      color: white;
+      text-align: center;
+      padding: 1.3rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+      box-shadow: 0 -5px 20px rgba(154, 6, 128, 0.4);
+      border-radius: 10px 10px 0 0;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      bottom: 0;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .section {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">Harinath Reddy</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#coursework">Coursework</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero glass">
+    <h1>Chitla Harinath Reddy</h1>
+    <p>Aspiring Software Engineer | Java, SQL, Frontend</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section glass">
+    <h2>About Me</h2>
+    <p>I'm an aspiring Software Engineer with foundational skills in Java, SQL, and frontend development. I focus on software development and data structures and am eager to apply my academic knowledge to real-world impactful solutions. I'm actively seeking opportunities to contribute to innovative projects using strong problem-solving and technology passion.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section glass">
+    <h2>Skills</h2>
+    <ul>
+      <li>Frontend: HTML, CSS, JavaScript</li>
+      <li>Languages: Java, C, Python</li>
+      <li>Database: SQL</li>
+      <li>Concepts: Data Structures and Algorithms (DSA)</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section glass">
+    <h2>Projects</h2>
+
+    <div class="project-card glass">
+      <h3>Sustainable Development Through Data Analytics</h3>
+      <p>Developed a data-driven model for optimizing ride-sharing systems (Uber, Ola, Rapido) using analytics. Used KMeans clustering to identify high-demand zones and exponential smoothing for demand forecasting. Analyzed over 350,000+ trip records and proposed EV adoption to reduce emissions.</p>
+    </div>
+
+    <div class="project-card glass">
+      <h3>Product Recommendation Model (Dec 2024 – Jan 2025)</h3>
+      <p>Engineered user-based and item-based collaborative filtering using Pandas, NumPy, Scikit-learn, Matplotlib, and Seaborn. Enhanced personalization and improved conversion by 18% through behavioral analysis and pattern tracking.</p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section glass">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Bachelor of Computer Engineering</strong> – Gitam University, Hyderabad (2026) – CGPA: 8.13</li>
+      <li><strong>Diploma</strong> – Govt Polytechnic for Minorities, Kurnool (2023) – %: 84.76</li>
+      <li><strong>SSC</strong> – AP Model School, Kurnool (2020) – GPA: 10</li>
+    </ul>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section glass">
+    <h2>Certifications</h2>
+    <ul>
+      <li>SQL – HackerRank (2025)</li>
+      <li>Scientific Computing with Python – FreeCodeCamp (2025)</li>
+    </ul>
+  </section>
+
+  <!-- Coursework -->
+  <section id="coursework" class="section glass">
+    <h2>Coursework</h2>
+    <ul class="course-list">
+      <li>Advanced Data Structures – Java (2024)</li>
+      <li>DBMS – SQL (2024)</li>
+      <li>Computer Networks – Java (2024)</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact glass">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:hchitla@gitam.in">hchitla@gitam.in</a></p>
+    <p>Phone: <a href="tel:+919381475754">+91 93814 75754</a></p>
+    <p>Location: Kurnool, India</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Chitla Harinath Reddy. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
